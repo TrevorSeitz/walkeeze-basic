@@ -10,9 +10,6 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
-gem 'sassc', '~> 2.0'
-gem 'sassc-rails', '~> 2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -45,6 +42,8 @@ gem 'bootstrap'
 
 #gem 'bootstrap-sass'
 gem 'paperclip', '>= 5.2.0'
+gem 'sass'
+gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass'
 # gem 'jquery_ujs'
 # Use ActiveStorage variant
