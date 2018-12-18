@@ -1,0 +1,13 @@
+<div class="column">
+  <%= form_for :user, url: '/user/register', :html => {class: "new_user"} do |f| %>
+    <div class="new_user_form">
+      Name: <%= f.text_field :name %><br>
+      Email: <%= f.text_field :email %><br>
+      Password: <%= f.text_field  :password %><br>
+      Password Confirmation: <%= f.text_field  :password_confirmation %><br>
+
+      <div class="actions"><%= submit_tag "Register" %></div>
+      <%#= f.submit %>
+    </div>
+  <% end %>
+</div>
