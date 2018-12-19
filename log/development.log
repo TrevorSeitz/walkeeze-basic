@@ -6222,3 +6222,786 @@ Processing by WalksController#index as HTML
 Completed 200 OK in 79ms (Views: 71.5ms | ActiveRecord: 1.1ms)
 
 
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:19:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BeJyPhLp4r8qZDZmdzzujysvBGhJ+0mqA9fjIMxbzYctyJupvXssSzJIe48Ru0FEfTyiBvLhv64n+Kdi1sS5rA==", "user"=>{"name"=>"fred walker", "email"=>"fred@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fred@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial sessions/_user_form, application/_user_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/trevorseitz/repos/GitHub/Flatiron/walkeeze-basic/app/views"
+):
+    3:     <%= "Get those dogs walking and stop the barking!!!" %><br><br>
+    4:   </div>
+    5:   <% @user.walker = true %>
+    6:   <%= render partial: 'user_form', locals: { user: @user } %>
+    7: </div>
+  
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb__521430261994393645_70346559754680'
+app/controllers/sessions_controller.rb:33:in `create'
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:19:58 -0500
+Processing by WalkersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.2ms)
+  Rendered walkers/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 38ms (Views: 33.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:20:07 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:20:07 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/trevorseitz/repos/GitHub/Flatiron/walkeeze-basic/app/views/welcome/home.html.erb:3: syntax error, unexpected '<'
+  <div class="shadowbox">
+   ^
+/Users/trevorseitz/repos/GitHub/Flatiron/walkeeze-basic/app/views/welcome/home.html.erb:4: syntax error, unexpected '<'
+    <%= "Welcome to Walk-eze #{@use
+     ^):
+  
+app/views/welcome/home.html.erb:3: syntax error, unexpected '<'
+app/views/welcome/home.html.erb:4: syntax error, unexpected '<'
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:20:11 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/trevorseitz/repos/GitHub/Flatiron/walkeeze-basic/app/views/welcome/home.html.erb:3: syntax error, unexpected '<'
+  <div class="shadowbox">
+   ^
+/Users/trevorseitz/repos/GitHub/Flatiron/walkeeze-basic/app/views/welcome/home.html.erb:4: syntax error, unexpected '<'
+    <%= "Welcome to Walk-eze #{@use
+     ^):
+  
+app/views/welcome/home.html.erb:3: syntax error, unexpected '<'
+app/views/welcome/home.html.erb:4: syntax error, unexpected '<'
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:20:35 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:20:39 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.3ms)
+  Rendered walkers/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:21:04 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"49EW3Wg21bhm98IFw1UYGutA0gPIfh25Ly1xhxWQGQ3L+/9Kx6QbTH7bj+yl0rfRvVN0bXNk670LAjXFDw9tJg==", "user"=>{"name"=>"jim walker", "email"=>"jim@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jim@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "jim walker"], ["email", "jim@walker.com"], ["password_digest", "$2a$10$.yFMzne3nMaSLNKjzdyqAee7QRXBGrHoOiabJsMiBc7oynzeEEa52"], ["created_at", "2018-12-19 16:21:04.844809"], ["updated_at", "2018-12-19 16:21:04.844809"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (278402.5ms)
+Completed 200 OK in 278517ms (Views: 278435.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:26:32 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:26:32 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 50ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:26:37 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.6ms)
+  Rendered walkers/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 53ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:26:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PMHM+lf5r+c3z9ZacMt2I8CuWs2wcDrJFvLLNFguy7IU6yVt+GthEy/jm7MWTNnolr38owtqzM0y3Y92QrG/mQ==", "user"=>{"name"=>"sam walker", "email"=>"sam@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sam@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "sam walker"], ["email", "sam@walker.com"], ["password_digest", "$2a$10$RAVJVBTE1JuYSdS61LzvzODx.WcIkhdRu4p2wCooFxFZSTbpOU2bS"], ["created_at", "2018-12-19 16:26:57.404817"], ["updated_at", "2018-12-19 16:26:57.404817"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (144658.8ms)
+Completed 200 OK in 144774ms (Views: 144692.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:29:26 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:29:26 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 42ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:29:29 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.3ms)
+  Rendered walkers/new.html.erb within layouts/application (21561.9ms)
+Completed 200 OK in 21606ms (Views: 21603.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:30:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Um8JTBrEX9qtkeYRkL6ZBQGtm0Dwt7d0nKbYCdSM2ot6ReDbtVaRLrW9q/j2OTbOV749LkutQXC4iZxLzhOuoA==", "user"=>{"name"=>"the walker", "email"=>"the@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "the@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "the walker"], ["email", "the@walker.com"], ["password_digest", "$2a$10$shX6xuIo2G4u0SWJO1XSpOPsroqsMdGeaQBkg7J3hp4OoUwfVM2VW"], ["created_at", "2018-12-19 16:30:43.216008"], ["updated_at", "2018-12-19 16:30:43.216008"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (93068.2ms)
+Completed 200 OK in 93183ms (Views: 93104.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:32:20 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:32:20 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 62ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:32:23 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.7ms)
+  Rendered walkers/new.html.erb within layouts/application (7064.7ms)
+Completed 200 OK in 7119ms (Views: 7115.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:33:09 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rdHIJe7Nhwimb5DdjLa2iIpZDgZeL3ATsHvYCxalZOGF+yGyQV9J/L5D3TTqMRlD3EqoaOU1hheUVJxJDDoQyg==", "walker"=>"true", "user"=>{"name"=>"phil walker", "email"=>"phil@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "phil@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "phil walker"], ["email", "phil@walker.com"], ["password_digest", "$2a$10$7xW5PxVF4KSNGks5xJ2pZO8NiTPhjaiESedhqjgtmde9In5YLoR52"], ["created_at", "2018-12-19 16:33:09.548216"], ["updated_at", "2018-12-19 16:33:09.548216"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (163457.1ms)
+Completed 200 OK in 163570ms (Views: 163490.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:36:00 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:36:00 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 40ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:36:02 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.2ms)
+  Rendered walkers/new.html.erb within layouts/application (62846.5ms)
+Completed 200 OK in 62884ms (Views: 62880.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:37:27 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u4wRw2cD6VDaW1KhqbRy5NlQbWy+LTnwy5v40cS6jwKTpvhUyJEnpMJ3H0jPM90vj0PLAgU3z/TvtLyT3iX7KQ==", "walker"=>"true", "user"=>{"name"=>"thing walker", "email"=>"thing@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "thing@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "thing walker"], ["email", "thing@walker.com"], ["password_digest", "$2a$10$.K8Wdg3EeY4u1TdheGRPrexu1SlWScvkFPJQqaglEJj3u6chyAaSm"], ["created_at", "2018-12-19 16:37:27.584311"], ["updated_at", "2018-12-19 16:37:27.584311"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (61355.0ms)
+Completed 200 OK in 61466ms (Views: 61386.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:38:34 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:38:34 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:38:49 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.9ms)
+  Rendered walkers/new.html.erb within layouts/application (12845.2ms)
+Completed 200 OK in 12888ms (Views: 12884.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:39:23 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AhIrmjqmA4kbKVPZSZnFYOv/6pOpij2s3jImlDbAc7IqOMINlTTNfQMFHjAvHmqrvexM/RKQy6j6HWLWLF8HmQ==", "walker"=>"true", "user"=>{"name"=>"test walker", "email"=>"test@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "test walker"], ["email", "test@walker.com"], ["password_digest", "$2a$10$gutEEI27aJx8iqW5qOWEvOgEsIp0atifZssjzzJJY.Y1o/5z1CCIa"], ["created_at", "2018-12-19 16:39:23.616277"], ["updated_at", "2018-12-19 16:39:23.616277"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (62623.4ms)
+Completed 200 OK in 62744ms (Views: 62664.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:40:33 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:40:33 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:40:35 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (8502.5ms)
+  Rendered walkers/new.html.erb within layouts/application (115962.8ms)
+Completed 200 OK in 116008ms (Views: 116004.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:42:41 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (3342.2ms)
+  Rendered walkers/new.html.erb within layouts/application (5880.8ms)
+Completed 200 OK in 5971ms (Views: 5945.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:43:10 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GgyhDjmoIRGn/aUhuIs7JN82/zFJ77NQpWwysjEui0UyJkiZljrv5b/R6MjeDJTviSVZX/L1RVSBQ3bwK7H/bg==", "walker"=>"true", "user"=>{"name"=>"bill Walker", "email"=>"bill@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bill@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "bill Walker"], ["email", "bill@walker.com"], ["password_digest", "$2a$10$hAeoRuQEfCI7.7w6SpimW.CtY6XFVbEo6KLtncmVWF6Zriy0jT8n."], ["created_at", "2018-12-19 16:43:10.368018"], ["updated_at", "2018-12-19 16:43:10.368018"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (149429.6ms)
+Completed 200 OK in 149543ms (Views: 149461.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 11:45:43 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:45:43 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 42ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:46:04 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (319.5ms)
+  Rendered walkers/new.html.erb within layouts/application (323.8ms)
+Completed 500 Internal Server Error in 336ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007ff5acf9f5e8>:0x00007ff5b4951d50>):
+     6:       <% end %>
+     7:       <div class="new_user_form">
+     8:         <br />
+     9:         Name: <%= f.text_field :name %><br>
+    10:         Email: <%= f.text_field :email %><br>
+    11:         Password: <%= f.password_field  :password %><br>
+    12:         Confirm:  <%= f.password_field  :password_confirmation %><br>
+  
+app/views/users/_user_form.html.erb:9:in `_app_views_users__user_form_html_erb__3526274747492199114_70346559845780'
+app/views/walkers/new.html.erb:8:in `_app_views_walkers_new_html_erb___2596016916541112306_70346636694420'
+Started GET "/users/new" for 127.0.0.1 at 2018-12-19 11:46:08 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (337.9ms)
+  Rendered users/new.html.erb within layouts/application (341.9ms)
+Completed 500 Internal Server Error in 354ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007ff5b3ac3130>:0x00007ff5b3ac16f0>):
+     6:       <% end %>
+     7:       <div class="new_user_form">
+     8:         <br />
+     9:         Name: <%= f.text_field :name %><br>
+    10:         Email: <%= f.text_field :email %><br>
+    11:         Password: <%= f.password_field  :password %><br>
+    12:         Confirm:  <%= f.password_field  :password_confirmation %><br>
+  
+app/views/users/_user_form.html.erb:9:in `_app_views_users__user_form_html_erb__3526274747492199114_70346629104680'
+app/views/users/new.html.erb:7:in `block in _app_views_users_new_html_erb__521430261994393645_70346629061860'
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb__521430261994393645_70346629061860'
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:52:39 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (13677.8ms)
+  Rendered walkers/new.html.erb within layouts/application (13681.2ms)
+Completed 200 OK in 13756ms (Views: 13724.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/walkers/register" for 127.0.0.1 at 2018-12-19 11:53:16 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/walkers/register"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/walkers/register" for 127.0.0.1 at 2018-12-19 11:54:33 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t1LkEkzU4HonVC2NnM9CwrnI2EbPa0tLMvLZ2LYOQSefeA2F40Yujj94YGT6SO0J79t+KHRxvU8W3Z2arJE1DA==", "user"=>{"name"=>"new walker", "email"=>"new@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "walker"=>"true", "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "new@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "new walker"], ["email", "new@walker.com"], ["password_digest", "$2a$10$mvBoR7jNCmQzjLOxnptTBOIZ860a5cH33Jq07JE79mEnZAj60B6x2"], ["created_at", "2018-12-19 16:54:33.267269"], ["updated_at", "2018-12-19 16:54:33.267269"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (17918.8ms)
+Completed 200 OK in 18070ms (Views: 17959.0ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 12:05:04 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 12:05:04 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 39ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 12:05:07 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (40167.0ms)
+  Rendered walkers/new.html.erb within layouts/application (40170.8ms)
+Completed 200 OK in 40211ms (Views: 40207.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/walkers/register" for 127.0.0.1 at 2018-12-19 12:06:12 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hd9DsNKD2nAt/pjCc7oGwxgKThgSNwPWYxpgj75sfait9aonfREUhDXS1SsVPakIThnodqkt9dJHNSTNpPMJgw==", "user"=>{"name"=>"why walker", "email"=>"why@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "walker"=>"true", "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "why@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "why walker"], ["email", "why@walker.com"], ["password_digest", "$2a$10$BgeHwENT33ukLXN0dtTr6un/MKYGTzHAcy0BKHjM9a4SYKiLyRF7W"], ["created_at", "2018-12-19 17:07:29.801133"], ["updated_at", "2018-12-19 17:07:29.801133"]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (2580.9ms)
+Completed 200 OK in 79714ms (Views: 2613.4ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 12:07:37 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 12:07:37 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 12:07:39 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (7956.5ms)
+  Rendered walkers/new.html.erb within layouts/application (7959.5ms)
+Completed 200 OK in 8001ms (Views: 7997.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/walkers/register" for 127.0.0.1 at 2018-12-19 12:08:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y5oR+kCxfpHBckCIkLfqPYHq7HfZ1Qi/2ceT1IsqBiRLsPht7yOwZdleDWH2MEX21/lKGWLP/rv96NeWkbVyDw==", "user"=>{"name"=>"maybe walker", "email"=>"maybe@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "walker"=>"true", "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maybe@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "walker") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "maybe walker"], ["email", "maybe@walker.com"], ["password_digest", "$2a$10$QsYbiGcvDOCXgdMi.rGsY.8o6eQBxGHtaPYGHXvq0MOt6l9zuW3LG"], ["created_at", "2018-12-19 17:08:23.502826"], ["updated_at", "2018-12-19 17:08:23.502826"], ["walker", nil]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (175748.1ms)
+Completed 200 OK in 192021ms (Views: 175779.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 12:11:28 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 12:11:28 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 46ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 12:11:30 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (1.9ms)
+  Rendered walkers/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/walkers/register" for 127.0.0.1 at 2018-12-19 12:11:58 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A83CRtMJpkycJVbKU5K8st7YX/CyPBGC4zaaSM3kT30r5yvRfJtouIQJGyM1FRN5iMv5ngkm54bHGd4K13s7Vg==", "user"=>{"name"=>"again walker", "email"=>"again@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "walker"=>"true", "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "again@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "walker") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "again walker"], ["email", "again@walker.com"], ["password_digest", "$2a$10$L3Wy4KMqo6CL6kHy3osYju.3GS5YyAESWSimfNTn/6ExNSU9QE5Uu"], ["created_at", "2018-12-19 17:12:20.441407"], ["updated_at", "2018-12-19 17:12:20.441407"], ["walker", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (10935.5ms)
+Completed 200 OK in 33374ms (Views: 10969.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/walks/new" for 127.0.0.1 at 2018-12-19 12:13:52 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 57ms (Views: 32.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 12:15:22 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 12:15:22 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 12:15:27 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (1.7ms)
+  Rendered walkers/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/walkers/register" for 127.0.0.1 at 2018-12-19 12:15:48 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v46MHgMZ/o2ErK+ErM3n05c0paepREEPOTQPbb2MfsKXpGWJrIsweZyA4m3KSkgYwScDyRJetwsdG0svpxMK6Q==", "user"=>{"name"=>"finally walker", "email"=>"finally@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "walker"=>"true", "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "finally@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "walker") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "finally walker"], ["email", "finally@walker.com"], ["password_digest", "$2a$10$19olnfrkeT6mUE4oq.p2m.bpD2X87tHxhUnP3ZxFY0eoxQSWEP.N."], ["created_at", "2018-12-19 17:16:20.562402"], ["updated_at", "2018-12-19 17:16:20.562402"], ["walker", 1]]
+  ↳ app/controllers/sessions_controller.rb:28
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:28
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:7
+  Rendered welcome/home.html.erb within layouts/application (16289.3ms)
+Completed 200 OK in 48195ms (Views: 16323.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/34" for 127.0.0.1 at 2018-12-19 12:16:43 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 34]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (14.8ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 34]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.6ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 98ms (Views: 62.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2018-12-19 12:16:58 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-19 12:16:58 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 43ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+

@@ -1,8 +1,24 @@
 class WalkersController < ApplicationController
   def new
-    @user = User.new    
+    @user = User.new
     # redirect_to '/users/new_walker'
   end
+
+  # def create
+  #   byebug
+  #   if user_params[:password] == user_params[:password_confirmation]
+  #     @user = User.find_by_email(user_params[:email])
+  #     if @user
+  #       redirect_to root_path, notice: "You are already registered, Please log in"
+  #     else
+  #       @user = User.create(user_params)
+  #       byebug
+  #       redirect_to user_path(@user.id), notice: "Welcome to Walkeeze!! "
+  #     end
+  #   else
+  #     redirect_to new_user_path, notice: "Passwords do not match"
+  #   end
+  # end
 
   def index
     @users = User.where(walker: true)
@@ -22,8 +38,15 @@ class WalkersController < ApplicationController
 
 
   def edit
-    # byebug
     @user = User.find(params[:id].to_i)
   end
+
+  # 
+  # private
+  #
+  # def user_params
+  #   params.require(:user).permit(:name, :email, :password, :password_confirmation, :user_id, :walker)
+  # end
+
 
 end

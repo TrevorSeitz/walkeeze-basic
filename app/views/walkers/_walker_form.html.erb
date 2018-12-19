@@ -1,4 +1,4 @@
-<%= form_for :user, url: '/users/register', :html => {class: "new_user"} do |f| %>
+<%= form_for :user, url: '/walkers/register', :html => {class: "new_user"} do |f| %>
   <div class="row">
     <div class="column6" id="log-in">
       <div class="new_user_form">
@@ -7,6 +7,8 @@
         Email: <%= f.text_field :email %><br>
         Password: <%= f.password_field  :password %><br>
         Confirm:  <%= f.password_field  :password_confirmation %><br>
+
+        <%= hidden_field_tag(:walker, true) %>
 
         <div class="actions"><%= submit_tag "Register" %></div>
       </div>

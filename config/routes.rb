@@ -33,4 +33,5 @@ resources :photos
   match '/login' => 'sessions#new', via: [:get, :post]
   match '/users/callback' => 'sessions#create', via: [:get, :post]
   match '/users/register', to: 'sessions#create', via: [:get, :post]
+  match '/walkers/register', to: 'sessions#create', via: [:get, :post]
 end

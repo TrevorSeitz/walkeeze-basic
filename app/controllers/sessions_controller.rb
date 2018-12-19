@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     #   end
     # else
       if(params[:user][:password_confirmation] && (params[:user][:password] == params[:user][:password_confirmation]))
-        @user = User.new(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])
+        @user = User.new(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password], walker: params[:walker])
       end
 
       if @user && @user.save
