@@ -1,37 +1,47 @@
 <% if session[:user_id] %>
+  <div class="shadowbox">
+    <%= "Welcome to Walk-eze #{@user.name}! " %><br><br>
 
-    <%= "Currently, Walkeeze's most active dog is:" %>
+    <%= "Currently, Walkeeze's most active dog is:" %><br />
     <%= "#{Dog.most_walks.name}, with a total of #{Dog.most_walks.dogs_walks.count} walks!" %><br><br>
+  </div>
 
-
-
-  <%= "Welcome to Walk-eze #{@user.name}! " %><br><br>
-
-
-  <p><%= button_to "Go to your Page", user_path(@user), {method: :get} %></p>
-  <p><%= button_to "Book a Walk", walks_path, {method: :get} %></p><br>
+  <div id="buttons">
+    <p><%= button_to "Go to your Page", user_path(@user), {method: :get} %></p>
+    <% if @user.walker === true%>
+      <p><%= button_to "Add a new Walk to your list", new_walk_path, {method: :get} %></p><br>
+    <% else %>
+      <p><%= button_to "Book a Walk", walks_path, {method: :get} %></p><br>
+    <% end %>
+  </div>
 <% else %>
-<%= "Walk-eze - the easiest way to get your dog walked!" %><br><br>
 
+  <div id="tagline">
+    <%= "Walk-eze - the easiest way to get your dog walked!" %><br><br>
+  </div>
 
-  <%= "Join our most active dog #{Dog.most_walks.name}, who so far has a total of #{Dog.most_walks.dogs_walks.count} walks!" %><br><br>
+  <div class="row">
+    <div class="column6" id="log-in">
 
+      <%= form_tag "/login" do %>
+        <div class="field">
+          <%= label_tag :email, "Email" %><br>
+          <%= text_field_tag :email %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %><br>
+          <%= password_field_tag :password %>
+        </div>
 
-  <p>
-    <strong>Not Walking yet?</strong><br>
-    <%= link_to "Create an account", new_user_path %> or login below.
-  </p>
+        <div class="actions"><%= submit_tag "Login" %></div>
 
-  <%= form_tag "/login" do %>
-    <div class="field">
-      <%= label_tag :email, "Email" %><br>
-      <%= text_field_tag :email %>
+         <br />
+         <p>
+           <strong>Not A Member Yet?</strong><br>
+         </p>
+         <%= link_to "Create an account", new_user_path %><br /><br />
+         <%= link_to "Become a walker.", new_walker_path %>
+      <% end %>
     </div>
-    <div class="field">
-      <%= label_tag :password %><br>
-      <%= password_field_tag :password %>
-    </div>
-    <div class="actions"><%= submit_tag "Login" %></div>
-  <% end %>
-  <img class="responsive-img" src="cool_pic.jpg">
+
 <% end %>

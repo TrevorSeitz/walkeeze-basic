@@ -14,7 +14,8 @@ class UsersController < ApplicationController
         redirect_to root_path, notice: "You are already registered, Please log in"
       else
         @user = User.create(user_params)
-        redirect_to user_path(@user), notice: "Welcome to Walkeeze!! "
+        byebug
+        redirect_to user_path(@user.id), notice: "Welcome to Walkeeze!! "
       end
     else
       redirect_to new_user_path, notice: "Passwords do not match"

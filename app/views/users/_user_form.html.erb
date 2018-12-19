@@ -1,33 +1,12 @@
-<%#= form_tag "/users/create" do %>
-
-<% if @user && @user.errors.any? %>
-  <div class="error_messages">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= form_for :user, url: '/user/register', :html => {class: "new_user"} do |f| %>
+<%= form_for :user, url: '/users/register', :html => {class: "new_user"} do |f| %>
 
   <div class="new_user_form">
-    <%#= label_tag :name %><br>
-    <%#= text_field_tag :name, @user.try(:name) %>
-    <%#= label_tag :email %><br>
-    <%#= text_field_tag :email, @user.try(:email) %>
-    <%#= label_tag :password %><br>
-    <%#= password_field_tag :password %>
-    <%#= label_tag :password_confirmation %><br>
-    <%#= password_field_tag :password_confirmation %>
     Name: <%= f.text_field :name %><br>
     Email: <%= f.text_field :email %><br>
     Password: <%= f.text_field  :password %><br>
     Password Confirmation: <%= f.text_field  :password_confirmation %><br>
 
     <div class="actions"><%= submit_tag "Register" %></div>
-    <%= f.submit %>
   </div>
 
 <% end %>

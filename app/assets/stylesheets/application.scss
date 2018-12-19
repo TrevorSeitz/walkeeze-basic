@@ -16,6 +16,7 @@
  // @import 'bootstrap-sprockets';
 // @import 'bootstrap';
 
+
 .hero-image {
       background: url('IMG_9850.jpg') no-repeat center center fixed;
       width: 100%;
@@ -24,6 +25,83 @@
       -o-background-size: cover;
       background-size: cover;
   }
-  .navbar {
-    background-color: rgba(63, 101, 14, 0.8); //63 101 14 green
+.navbar {
+  // float: right;
+  // width: 25%;
+  background-color: rgba(255, 255, 255, 0.6); //63 101 14 green
+  height: 2.5em;
+  text-align: right;
+  margin-top: -10px;
+  padding-right: 50px;
+
+}
+
+.column {
   }
+
+.column1 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.column2 {
+  background-color: rgba(255, 255, 255, 0.6);
+    flex: 50%;
+    float: left;
+}
+
+.column3 {
+  background-color: rgba(255, 255, 255, 0.6);
+    flex: 33%;
+    float: left;
+}
+
+.column4 {
+  background-color: rgba(255, 255, 255, 0.6);
+    width: 25%;
+    float: left;
+}
+
+.column5 {
+  background-color: rgba(255, 255, 255, 0.6);
+    width: 20%;
+    float: left;
+    padding-left: 5%;
+}
+
+.column6 {
+  background-color: rgba(255, 255, 255, 0.3);
+    width: 16.6%;
+    padding-left: 5%;
+}
+
+.shadowbox {
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-left: 5%;
+  width: 30%;
+  padding: 20px;
+}
+
+#buttons {
+  margin-left: 5%;
+  // float: left;
+  // padding-bottom: 2%;
+}
+
+#new_walk {
+  padding-top: 2px;
+  // float: left;
+  padding-bottom: 20px;
+}
+
+#log-in {
+  margin-top: 5%;
+  float: left;
+  padding-bottom: 2%;
+}
+
+#tagline {
+  font-size: 2em;
+  margin-top: 5%;
+  text-align: center;
+
+}
