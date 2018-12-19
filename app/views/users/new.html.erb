@@ -3,8 +3,8 @@
     <div class="new_user_form">
       Name: <%= f.text_field :name %><br>
       Email: <%= f.text_field :email %><br>
-      Password: <%= f.text_field  :password %><br>
-      Password Confirmation: <%= f.text_field  :password_confirmation %><br>
+      Password: <%= f.password_field  :password %><br>
+      Password Confirmation: <%= f.password_field  :password_confirmation %><br>
 
       <div class="actions"><%= submit_tag "Register" %></div>
       <%#= f.submit %>
