@@ -1,12 +1,20 @@
-<%= form_for :user, url: '/users/register', :html => {class: "new_user"} do |f| %>
+<!-- This i s not in use -->
 
-  <div class="new_user_form">
-    Name: <%= f.text_field :name %><br>
-    Email: <%= f.text_field :email %><br>
-    Password: <%= f.text_field  :password %><br>
-    Password Confirmation: <%= f.text_field  :password_confirmation %><br>
+<div class="row">
+  <div class="column6" id="log-in">
 
-    <div class="actions"><%= submit_tag "Register" %></div>
+    <%= form_for :user, url: '/users/register', :html => {class: "new_user"} do |f| %>
+
+      <div class="new_user_form">
+        Name: <%= f.text_field :name %><br>
+        Email: <%= f.text_field :email %><br>
+        Password: <%= f.text_field  :password %><br>
+        Password Confirmation: <%= f.text_field  :password_confirmation %><br>
+
+        <div class="actions"><%= submit_tag "Register" %></div>
+      </div>
+
+    <% end %>
+
   </div>
-
-<% end %>
+</div>
