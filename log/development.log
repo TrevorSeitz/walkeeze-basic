@@ -6107,3 +6107,118 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 41ms (Views: 37.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:03:54 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.3ms)
+  Rendered walkers/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 40ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:08:57 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.6ms)
+  Rendered walkers/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 54ms (Views: 48.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-12-19 11:09:05 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (19.7ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_user_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/trevorseitz/repos/GitHub/Flatiron/walkeeze-basic/app/views"
+):
+    3:     <%= "Get those dogs walking and stop the barking!!!" %><br><br>
+    4:   </div>
+    5:   <% @user.walker = true %>
+    6:   <%= render partial: '/user_form', locals: { user: @user } %>
+    7: </div>
+  
+app/views/users/new.html.erb:6:in `_app_views_users_new_html_erb__521430261994393645_70346628109960'
+Started GET "/users/new" for 127.0.0.1 at 2018-12-19 11:09:52 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 39ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-19 11:09:59 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered users/_user_form.html.erb (1.1ms)
+  Rendered walkers/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 47ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/register" for 127.0.0.1 at 2018-12-19 11:10:20 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BeJyPhLp4r8qZDZmdzzujysvBGhJ+0mqA9fjIMxbzYctyJupvXssSzJIe48Ru0FEfTyiBvLhv64n+Kdi1sS5rA==", "user"=>{"name"=>"fred walker", "email"=>"fred@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fred@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "fred walker"], ["email", "fred@walker.com"], ["password_digest", "$2a$10$FirY4ZYa5ATDhq5pworD0unNedQ3SKIPgrGMo8hiZE7YHRvuRHkbe"], ["created_at", "2018-12-19 16:10:20.189744"], ["updated_at", "2018-12-19 16:10:20.189744"]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:6
+  Rendered welcome/home.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 124ms (Views: 42.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/22" for 127.0.0.1 at 2018-12-19 11:10:25 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 22]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (28.2ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 22]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.4ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 84ms (Views: 72.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/walks" for 127.0.0.1 at 2018-12-19 11:10:29 -0500
+Processing by WalksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/index.html.erb within layouts/application
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks"[0m
+  ↳ app/views/walks/index.html.erb:3
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (5.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 2]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 3]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.7ms)
+  Rendered walks/index.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 79ms (Views: 71.5ms | ActiveRecord: 1.1ms)
+
+

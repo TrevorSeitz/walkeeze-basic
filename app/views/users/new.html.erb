@@ -1,17 +1,7 @@
-<div class="row">
-  <div class="column6" id="log-in">
-
-    <%= form_for :user, url: '/users/register', :html => {class: "new_user"} do |f| %>
-      <div class="new_user_form">
-        <br />
-        Name: <%= f.text_field :name %><br>
-        Email: <%= f.text_field :email %><br>
-        Password: <%= f.password_field  :password %><br>
-        Confirm:  <%= f.password_field  :password_confirmation %><br>
-
-        <div class="actions"><%= submit_tag "Register" %></div>
-      </div>
-    <% end %>
-
+<div>
+  <div id="tagline">
+    <%= "Get those dogs walking and stop the barking!!!" %><br><br>
   </div>
+  <% @user.walker = true %>
+  <%= render partial: 'user_form', locals: { user: @user } %>
 </div>
