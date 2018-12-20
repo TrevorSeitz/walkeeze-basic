@@ -7072,3 +7072,756 @@ Processing by WalksController#new as HTML
 Completed 200 OK in 50ms (Views: 45.4ms | ActiveRecord: 0.3ms)
 
 
+Started POST "/walks/create" for ::1 at 2018-12-20 10:48:18 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HSUTF2EDNy6qqAfXi29j54sEfmlAddb/F1aXxqSnYcc1D/qAzpH52rKESj7t6Mws3RfYB/tvIPszedOEvjgV7A==", "id"=>"", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Register"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:8
+Completed 404 Not Found in 18ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Walk with 'id'=0):
+  
+app/controllers/walks_controller.rb:8:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/trevorseitz/.rvm/gems/ruby-2.4.4/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:52
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:52
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ray@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:52
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hank@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mDog Create (0.5ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "user_id", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Snoopy"], ["breed", "Beagle"], ["age", 2], ["user_id", 1], ["notes", ""], ["created_at", "2018-12-20 15:49:40.107913"], ["updated_at", "2018-12-20 15:49:40.107913"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mDog Create (0.2ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "user_id", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lady"], ["breed", "Spqniel"], ["age", 3], ["user_id", 1], ["notes", ""], ["created_at", "2018-12-20 15:49:40.112589"], ["updated_at", "2018-12-20 15:49:40.112589"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mDog Create (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "user_id", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Scooby"], ["breed", "Mutt"], ["age", 9], ["user_id", 2], ["notes", ""], ["created_at", "2018-12-20 15:49:40.116715"], ["updated_at", "2018-12-20 15:49:40.116715"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mDog Create (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "user_id", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lassie"], ["breed", "Collie"], ["age", 5], ["user_id", 3], ["notes", ""], ["created_at", "2018-12-20 15:49:40.120227"], ["updated_at", "2018-12-20 15:49:40.120227"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mDog Create (0.3ms)[0m  [1m[32mINSERT INTO "dogs" ("name", "breed", "age", "user_id", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bolt"], ["breed", "Shepard"], ["age", 1], ["user_id", 3], ["notes", ""], ["created_at", "2018-12-20 15:49:40.124418"], ["updated_at", "2018-12-20 15:49:40.124418"]]
+  ↳ db/seeds.rb:62
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:62
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:72
+  [1m[36mWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "walks" ("walker_name", "date", "time", "length", "available_spots", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["walker_name", "Fred"], ["date", "2018-08-08"], ["time", "12:00"], ["length", 45], ["available_spots", 5], ["notes", "Water"], ["created_at", "2018-12-20 15:49:40.141031"], ["updated_at", "2018-12-20 15:49:40.141031"]]
+  ↳ db/seeds.rb:72
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:72
+  [1m[36mWalk Create (0.3ms)[0m  [1m[32mINSERT INTO "walks" ("walker_name", "date", "time", "length", "available_spots", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["walker_name", "Billy"], ["date", "2018-08-08"], ["time", "15:00"], ["length", 60], ["available_spots", 3], ["notes", "Water and Treats"], ["created_at", "2018-12-20 15:49:40.147443"], ["updated_at", "2018-12-20 15:49:40.147443"]]
+  ↳ db/seeds.rb:72
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:72
+  [1m[36mWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "walks" ("walker_name", "date", "time", "length", "available_spots", "notes", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["walker_name", "Lulu"], ["date", "2018-08-08"], ["time", "17:00"], ["length", 30], ["available_spots", 2], ["notes", "Dog Park"], ["created_at", "2018-12-20 15:49:40.150936"], ["updated_at", "2018-12-20 15:49:40.150936"]]
+  ↳ db/seeds.rb:72
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 1], ["walk_id", 1]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.5ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 2], ["walk_id", 1]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.5ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 3], ["walk_id", 1]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 1], ["walk_id", 2]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 4], ["walk_id", 2]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 5], ["walk_id", 2]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 1], ["walk_id", 3]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:82
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mWalk Load (0.0ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mDogsWalk Create (0.4ms)[0m  [1m[32mINSERT INTO "dogs_walks" ("notes", "dog_id", "walk_id") VALUES (?, ?, ?)[0m  [["notes", "no notes today"], ["dog_id", 4], ["walk_id", 3]]
+  ↳ db/seeds.rb:82
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:82
+Started POST "/walks/create" for ::1 at 2018-12-20 10:50:09 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HSUTF2EDNy6qqAfXi29j54sEfmlAddb/F1aXxqSnYcc1D/qAzpH52rKESj7t6Mws3RfYB/tvIPszedOEvjgV7A==", "id"=>"", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Register"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:8
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Walk with 'id'=0):
+  
+app/controllers/walks_controller.rb:8:in `create'
+Started POST "/walks/create" for ::1 at 2018-12-20 11:05:24 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HSUTF2EDNy6qqAfXi29j54sEfmlAddb/F1aXxqSnYcc1D/qAzpH52rKESj7t6Mws3RfYB/tvIPszedOEvjgV7A==", "id"=>"", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Register"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 400 Bad Request in 33ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: walk):
+  
+app/controllers/walks_controller.rb:83:in `walk_params'
+app/controllers/walks_controller.rb:8:in `create'
+Started GET "/walks/new" for ::1 at 2018-12-20 11:05:28 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 39ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:06:25 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 78ms (Views: 72.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:06:30 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 39ms (Views: 35.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:06:41 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 41ms (Views: 36.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:06:52 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vGKlyR6disLDZJbXTSj1/1etD/v6ioKGivN21PuLz7mUSExesQ9ENttI2z4rr1o0Ab6plUGQdIKu3DKW4RS7kg==", "id"=>"", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: walk):
+  
+app/controllers/walks_controller.rb:83:in `walk_params'
+app/controllers/walks_controller.rb:8:in `create'
+Started POST "/walks/create" for ::1 at 2018-12-20 11:07:28 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vGKlyR6disLDZJbXTSj1/1etD/v6ioKGivN21PuLz7mUSExesQ9ENttI2z4rr1o0Ab6plUGQdIKu3DKW4RS7kg==", "id"=>"", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 400 Bad Request in 369422ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: walk):
+  
+app/controllers/walks_controller.rb:84:in `walk_params'
+app/controllers/walks_controller.rb:9:in `create'
+Started GET "/walks/new" for ::1 at 2018-12-20 11:13:46 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:13:56 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tyzqByw/b1NqGBDKx5WKHUQHiOeouu8mRWiGArYLBYifBgOQg62hp3I0XSOhEiXWEhQuiROgGSJhR8JArJRxow==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 400 Bad Request in 166458ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: walk):
+  
+app/controllers/walks_controller.rb:84:in `walk_params'
+app/controllers/walks_controller.rb:9:in `create'
+Started GET "/walks/new" for ::1 at 2018-12-20 11:16:54 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 71ms (Views: 46.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:17:03 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8w1ZJ+OnWzP4Ci4Fa7m2L+Jl065CR7y/XV57AupqthXbJ7CwTDWVx+AmY+wNPhnktHZ1wPldSrt5cT9A8PXCPg==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+Completed 500 Internal Server Error in 11764ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::HasManyThroughNestedAssociationsAreReadonly (Cannot modify association 'User#walks' because it goes through more than one other association.):
+  
+app/controllers/walks_controller.rb:9:in `create'
+Started GET "/walks/new" for ::1 at 2018-12-20 11:17:57 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 72ms (Views: 36.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:18:06 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 5506ms (ActiveRecord: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `walks' for #<WalksController:0x00007f86fb040770>
+Did you mean?  walks_url):
+  
+app/controllers/walks_controller.rb:9:in `create'
+Started POST "/walks/create" for ::1 at 2018-12-20 11:18:50 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 5824ms (ActiveRecord: 1.1ms)
+
+
+  
+NameError (undefined local variable or method `walk' for #<WalksController:0x00007f86f8f3cb78>):
+  
+app/controllers/walks_controller.rb:9:in `create'
+Started POST "/walks/create" for ::1 at 2018-12-20 11:19:34 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 6597ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `build' for #<Class:0x00007f86fab05f80>):
+  
+app/controllers/walks_controller.rb:9:in `create'
+Started POST "/walks/create" for ::1 at 2018-12-20 11:20:01 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 8603ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/walks_controller.rb:9:in `create'
+Started POST "/walks/create" for ::1 at 2018-12-20 11:24:50 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/walks_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/walks_controller.rb:12
+Redirected to http://localhost:4000/walks/new
+Completed 302 Found in 5228ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:24:55 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 41.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:25:16 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (byebug):1
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (byebug):1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/walks_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/walks_controller.rb:12
+Redirected to http://localhost:4000/walks/new
+Completed 302 Found in 1042568ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:42:39 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:42:51 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+sEl3ai0rVuU/lfPHLw4DvHkgIguXiVNsFsoRaHbsNjwe0A2TAcQXZ/tLZa9V8rbdQ0bJujjpES7ijjDBga6A==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/walks_controller.rb:39
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/walks_controller.rb:39
+Redirected to http://localhost:4000/walkers/35
+Completed 302 Found in 38ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/walkers/35" for ::1 at 2018-12-20 11:42:51 -0500
+Processing by WalkersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:4000/users/35
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/35" for ::1 at 2018-12-20 11:42:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (12.0ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.7ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 59ms (Views: 55.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2018-12-20 11:43:06 -0500
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:6
+  Rendered welcome/home.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 61ms (Views: 55.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:43:09 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 38ms (Views: 34.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:43:29 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WgcT+Bh1KjoJLzq7rVcisjXMiqh3b+zV7ekhkGF6i+pyLfpvt+fkzhEDd1LL0I15Y98sxsx1GtHJxmXSe+X/wQ==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:10", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/walks_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/walks_controller.rb:39
+Redirected to http://localhost:4000/walkers/35
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/walkers/35" for ::1 at 2018-12-20 11:43:29 -0500
+Processing by WalkersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:4000/users/35
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/35" for ::1 at 2018-12-20 11:43:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (13.8ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.7ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 72ms (Views: 66.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/walks" for ::1 at 2018-12-20 11:43:32 -0500
+Processing by WalksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/index.html.erb within layouts/application
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks"[0m
+  ↳ app/views/walks/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (4.9ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 2]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (2.4ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 3]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (2.1ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 4]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 5]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 6]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.7ms)
+  Rendered walks/index.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 74ms (Views: 68.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/35" for ::1 at 2018-12-20 11:43:49 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (3.4ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.7ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 64ms (Views: 58.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2018-12-20 11:44:39 -0500
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:6
+  Rendered welcome/home.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 81ms (Views: 57.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:44:40 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 39ms (Views: 35.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:44:56 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p9SsrTLqswy9d/sjSUoPV3vEONZFzN/FNZWZzI08KJeP/kU6nXh9+KVbtsovzaCcLdeeuP7WKcERut2Ol6NcvA==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"11/22/2018", "time"=>"16:05", "length"=>"45", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (byebug):1
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (byebug):1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/walks_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/walks_controller.rb:40
+Redirected to http://localhost:4000/walkers/35
+Completed 302 Found in 648174ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/walkers/35" for ::1 at 2018-12-20 11:55:44 -0500
+Processing by WalkersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:4000/users/35
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/35" for ::1 at 2018-12-20 11:55:44 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (7.5ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.1ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 76ms (Views: 70.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2018-12-20 11:55:49 -0500
+Processing by WelcomeController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:6
+  Rendered welcome/home.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 48ms (Views: 43.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 11:55:51 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 42ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/walks/create" for ::1 at 2018-12-20 11:56:04 -0500
+Processing by WalksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RmcLUAcMT8GzkJP8YXB4PYGCkEmGTUJe4/IEfNtjn8luTeLHqJ6BNau83hUH99f215E2Jz1XtFrH3UA+wfzr4g==", "walker_name"=>"jimmy alker", "walker_id"=>"35", "date"=>"2018-11-13", "time"=>"16:00", "length"=>"30", "available_spots"=>"5", "notes"=>"none", "commit"=>"Create Walk"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (byebug):1
+  [1m[36mWalk Create (0.5ms)[0m  [1m[32mINSERT INTO "walks" ("walker_name", "date", "time", "length", "available_spots", "notes", "created_at", "updated_at", "walker_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["walker_name", "jimmy alker"], ["date", "2018-11-13"], ["time", "16:00"], ["length", 30], ["available_spots", 5], ["notes", "none"], ["created_at", "2018-12-20 16:56:14.042065"], ["updated_at", "2018-12-20 16:56:14.042065"], ["walker_id", 35]]
+  ↳ (byebug):1
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (byebug):1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/walks_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/walks_controller.rb:40
+Redirected to http://localhost:4000/walkers/35
+Completed 302 Found in 13797ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/walkers/35" for ::1 at 2018-12-20 11:56:18 -0500
+Processing by WalkersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:4000/users/35
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/35" for ::1 at 2018-12-20 11:56:18 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  Rendered users/_scheduled_walks.html.erb (2.5ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 35]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.8ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 63ms (Views: 57.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/walks" for ::1 at 2018-12-20 11:56:22 -0500
+Processing by WalksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/index.html.erb within layouts/application
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT "walks".* FROM "walks"[0m
+  ↳ app/views/walks/index.html.erb:3
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (4.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 2]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 3]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 4]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 5]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 6]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 7]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (1.7ms)
+  Rendered walks/index.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 77ms (Views: 71.1ms | ActiveRecord: 1.9ms)
+
+

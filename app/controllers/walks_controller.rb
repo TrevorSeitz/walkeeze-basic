@@ -5,34 +5,86 @@ class WalksController < ApplicationController
   end
 
   def create
-    @walk = Walk.find(params[:id].to_i)
-    if params[:dog_ids]
-      params[:dog_ids].map(&:to_i).each do |d|
-        if !@walk.dogs.ids.include?(d)
-          @dog = Dog.find(d)
-          @walk.dogs << @dog
+      if params[:id].to_i > 0
+        byebug
+        @walk = Walk.find_or_create_by(id: params[:id].to_i)
+        if params[:dog_ids]
+          params[:dog_ids].map(&:to_i).each do |d|
+            if !@walk.dogs.ids.include?(d)
+              @dog = Dog.find(d)
+              @walk.dogs << @dog
+            end
+          end
+        else
+          params[:dog_ids]=[]
         end
+
+        @walk.dogs.each do |wd|
+          if !params[:dog_ids].map(&:to_i).include?(wd.id)
+            if wd.user_id == current_user.id
+              @walk.dogs.delete(wd)
+            end
+          end
+        end
+
+        if @walk.dogs.count > @walk.available_spots
+          redirect_to edit_walk_url(@walk)
+          flash[:notice] = 'There is not enough space for all these dogs! Please choose fewer dogs.'
+        else
+          @walk.save
+          render 'confirm_walk'
+        end
+      else
+        @walk = Walk.new(walk_params)
+        byebug
+        @walk.save
+        redirect_to walker_url(current_user)
       end
-    else
-      params[:dog_ids]=[]
     end
 
-    @walk.dogs.each do |wd|
-      if !params[:dog_ids].map(&:to_i).include?(wd.id)
-        if wd.user_id == current_user.id
-          @walk.dogs.delete(wd)
-        end
-      end
-    end
+  # def create
+  #   @walk = Walk.new(walker_name: params[:walker_name], walker_id: params[:walker_id], date: params[:date],
+  #     time: params[:time], length: params[:length], available_spots: params[:available_spots], notes: params[:notes])
+  #
+  #       byebug
+  #   @walk.save
+  #   if @walk.valid?
+  #     redirect_to user_path(@user)
+  #     # render json: @dog, status: 201
+  #   else
+  #     redirect_to new_walk_path
+  #   end
+  # end
 
-    if @walk.dogs.count > @walk.available_spots
-      redirect_to edit_walk_url(@walk)
-      flash[:notice] = 'There is not enough space for all these dogs! Please choose fewer dogs.'
-    else
-      @walk.save
-      render 'confirm_walk'
-    end
-  end
+  # def create
+  #   @walk = Walk.find(params[:id].to_i)
+  #   if params[:dog_ids]
+  #     params[:dog_ids].map(&:to_i).each do |d|
+  #       if !@walk.dogs.ids.include?(d)
+  #         @dog = Dog.find(d)
+  #         @walk.dogs << @dog
+  #       end
+  #     end
+  #   else
+  #     params[:dog_ids]=[]
+  #   end
+  #
+  #   @walk.dogs.each do |wd|
+  #     if !params[:dog_ids].map(&:to_i).include?(wd.id)
+  #       if wd.user_id == current_user.id
+  #         @walk.dogs.delete(wd)
+  #       end
+  #     end
+  #   end
+  #
+  #   if @walk.dogs.count > @walk.available_spots
+  #     redirect_to edit_walk_url(@walk)
+  #     flash[:notice] = 'There is not enough space for all these dogs! Please choose fewer dogs.'
+  #   else
+  #     @walk.save
+  #     render 'confirm_walk'
+  #   end
+  # end
 
   def update
     @dogs_walk_id = DogsWalk.where(dog_id: params[:dog_id].to_i, walk_id: params[:id].to_i)
@@ -69,7 +121,9 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:name, :length, :available, :available_spots, :date, :time, :notes)
+    # params.permit(:walker_name, :walker_id, :date, :time, :length, :available_spots, :notes)
+    params.permit(:id, :name, :length, :available, :available_spots, :date, :time, :notes, :walker_name, :walker_id)
+
   end
 
 end

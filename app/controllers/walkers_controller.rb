@@ -41,7 +41,7 @@ class WalkersController < ApplicationController
     @user = User.find(params[:id].to_i)
   end
 
-  # 
+
   # private
   #
   # def user_params
