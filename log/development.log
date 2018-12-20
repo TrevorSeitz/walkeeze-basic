@@ -7005,3 +7005,70 @@ Processing by WelcomeController#home as HTML
 Completed 200 OK in 43ms (Views: 39.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-20 10:31:52 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 50ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for 127.0.0.1 at 2018-12-20 10:31:55 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (1.2ms)
+  Rendered walkers/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-12-20 10:44:13 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/trevorseitz/.rvm/gems/ruby-2.4.4/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 361ms (Views: 353.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/walkers/new" for ::1 at 2018-12-20 10:44:31 -0500
+Processing by WalkersController#new as HTML
+  Rendering walkers/new.html.erb within layouts/application
+  Rendered walkers/_walker_form.html.erb (6.7ms)
+  Rendered walkers/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 71ms (Views: 41.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/walkers/register" for ::1 at 2018-12-20 10:44:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PdB8mUhjLn30b/eSVyPol/JNM9Du4ulNH6u+LBblLz0V+pUO5/HgiexDunsxpEdcpF6VvlX4H0k7hPpuDHpbFg==", "user"=>{"name"=>"jimmy alker", "email"=>"jimmy@walker.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "walker"=>"true", "commit"=>"Register"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jimmy@walker.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "walker") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "jimmy alker"], ["email", "jimmy@walker.com"], ["password_digest", "$2a$10$1H728DsVb89/Ed68TKiKCeh53l4uiAxntENcOQt7EI3x2NpTWbHha"], ["created_at", "2018-12-20 15:44:51.862210"], ["updated_at", "2018-12-20 15:44:51.862210"], ["walker", 1]]
+  ↳ app/controllers/sessions_controller.rb:27
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:27
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:6
+  Rendered welcome/home.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 150ms (Views: 67.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/walks/new" for ::1 at 2018-12-20 10:44:56 -0500
+Processing by WalksController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering walks/new.html.erb within layouts/application
+  Rendered walks/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 50ms (Views: 45.4ms | ActiveRecord: 0.3ms)
+
+
