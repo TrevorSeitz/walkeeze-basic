@@ -36,7 +36,6 @@ class WalksController < ApplicationController
         end
       else
         @walk = Walk.new(walk_params)
-        byebug
         @walk.save
         redirect_to walker_url(current_user)
       end
