@@ -1,6 +1,16 @@
-<p>
-<%= link_to 'See Scheduled Walks', schedule_path(@dog), :class => 'load_walks' %>
-</p>
-<div class="walks">
 
+<div class="walks" id="box_space_left">
+  <h2><%= 'Scheduled Walks'%></h2>
+  <% @dog.walks.each do |walk| %>
+    <%= render partial: 'walks/form', locals: { user: @user, dog: @dog, dogs: @dogs, walk: walk } %>
+
+    <%= "Other Dogs on this Walk!"%>
+    <%= render partial: '/walks/show_dogs.html.erb', locals: {dogs: @dogs, walk: walk }%>
+
+    <div class="dog_list<%=walk.id%>"></div>
+
+    <ul>
+      <p id="dogs_list<%=walk.id%>">      </p>
+    </ul>
+  <% end %>
 </div>

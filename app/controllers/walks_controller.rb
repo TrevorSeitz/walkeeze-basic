@@ -6,7 +6,6 @@ class WalksController < ApplicationController
 
   def create
       if params[:id].to_i > 0
-        byebug
         @walk = Walk.find_or_create_by(id: params[:id].to_i)
         if params[:dog_ids]
           params[:dog_ids].map(&:to_i).each do |d|
