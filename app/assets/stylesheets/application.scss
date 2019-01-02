@@ -29,9 +29,10 @@
   // float: right;
   // width: 25%;
   background-color: rgba(255, 255, 255, 0.6); //63 101 14 green
-  height: 2.5em;
+  height: 2gem;
   text-align: right;
   margin-top: -10px;
+  padding-top: 10px;
   padding-right: 50px;
 
 }
@@ -40,32 +41,36 @@
   }
 
 .column1 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
+  padding-left: 5%;
 }
 
 .column2 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
     flex: 50%;
     float: left;
+    padding-left: 1%;
 }
 
 .column3 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
     flex: 33%;
     float: left;
+    padding-left: 1%;
 }
 
 .column4 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
     width: 25%;
     float: left;
+    padding-left: 1%;
 }
 
 .column5 {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.3);
     width: 20%;
     float: left;
-    padding-left: 5%;
+    padding-left: 1%;
 }
 
 .column6 {

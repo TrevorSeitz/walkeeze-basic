@@ -1,6 +1,6 @@
 <% if session[:user_id] %>
   <div class="shadowbox">
-    <%= "Welcome to Walk-eze #{@user.name}! " %><br><br>
+    <%= "Welcome to Walkeeze #{@user.name}! " %><br><br>
 
     <%= "Currently, Walkeeze's most active dog is:" %><br />
     <%= "#{Dog.most_walks.name}, with a total of #{Dog.most_walks.dogs_walks.count} walks!" %><br><br>

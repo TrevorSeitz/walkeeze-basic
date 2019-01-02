@@ -10861,3 +10861,526 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 232ms (Views: 207.1ms | ActiveRecord: 4.6ms)
 
 
+Started GET "/signout" for 127.0.0.1 at 2018-12-27 18:40:22 -0500
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-27 18:40:22 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 147ms (Views: 141.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-27 18:42:16 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 67ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-02 17:35:22 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/trevorseitz/.rvm/gems/ruby-2.4.4/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 493ms (Views: 469.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-01-02 17:36:23 -0500
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ilg4+O2PvPlxBPXiY3DezbXfvqQKO3wZOwGAsPg7mrIKctFvQh1yDWkouAsF93EG48wYyrEhih0fLsTy4qTumQ==", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3
+  Rendering welcome/home.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mDog Load (0.6ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT("dogs_walks"."dog_id") AS count_dog_id, "dogs_walks"."dog_id" AS dogs_walks_dog_id FROM "dogs_walks" GROUP BY "dogs_walks"."dog_id" ORDER BY count_dog_id desc[0m
+  ↳ app/models/dog.rb:19
+  [1m[36mCACHE Dog Load (0.0ms)[0m  [1m[34mSELECT  "dogs".* FROM "dogs" WHERE "dogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/dog.rb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs_walks" WHERE "dogs_walks"."dog_id" = ?[0m  [["dog_id", 1]]
+  ↳ app/views/welcome/home.html.erb:6
+  Rendered welcome/home.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 156ms (Views: 72.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:36:26 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  [1m[36mWalk Load (0.8ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.6ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (29.9ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.5ms)
+  Rendered users/_show_photo.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 89ms (Views: 81.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:37:54 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.5ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (3.8ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.0ms)
+  Rendered users/_show_photo.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 1096ms (Views: 1090.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:38:33 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.0ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (4.4ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.9ms)
+  Rendered users/_show_photo.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 485ms (Views: 478.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:39:07 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/_show_photo.html.erb (0.7ms)
+  [1m[36mWalk Load (0.6ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (6.5ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.6ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 495ms (Views: 488.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:40:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (4.2ms)
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (1.9ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 469ms (Views: 463.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:40:54 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.9ms)
+  Rendered users/_show_photo.html.erb (0.8ms)
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (5.0ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.9ms)
+  Rendered users/_show_photo.html.erb (0.7ms)
+  Rendered users/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 495ms (Views: 489.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:41:09 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (6.2ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.7ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 477ms (Views: 471.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:42:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.7ms)
+  Rendered users/_show_photo.html.erb (0.7ms)
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (3.6ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:4
+  Rendered users/_users_dogs.html.erb (2.2ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 78ms (Views: 72.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:43:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:2
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:5
+  Rendered users/_scheduled_walks.html.erb (5.9ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:5
+  Rendered users/_users_dogs.html.erb (2.5ms)
+  Rendered users/_show_photo.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 67ms (Views: 62.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-02 17:43:49 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_form.html.erb (0.9ms)
+  Rendered users/_show_photo.html.erb (0.6ms)
+  [1m[36mWalk Load (0.1ms)[0m  [1m[34mSELECT "walks".* FROM "walks" INNER JOIN "dogs_walks" ON "walks"."id" = "dogs_walks"."walk_id" INNER JOIN "dogs" ON "dogs_walks"."dog_id" = "dogs"."id" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_scheduled_walks.html.erb:3
+  [1m[36mDog Load (0.1ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/users/_scheduled_walks.html.erb:6
+  Rendered users/_scheduled_walks.html.erb (4.2ms)
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" WHERE "dogs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/_users_dogs.html.erb:5
+  Rendered users/_users_dogs.html.erb (2.6ms)
+  Rendered users/_show_photo.html.erb (0.8ms)
+  Rendered users/show.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 69ms (Views: 62.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:43:59 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:3
+  Rendered walks/_form.html.erb (2.7ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.8ms)
+  Rendered walks/show.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 50ms (Views: 42.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:45:43 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (9.2ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.5ms)
+  Rendered walks/show.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 59ms (Views: 51.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:46:22 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.2ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.5ms)
+  Rendered walks/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 50ms (Views: 44.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:47:21 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.3ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.8ms)
+  Rendered walks/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 48ms (Views: 41.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:47:38 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (1.8ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.2ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.2ms)
+  Rendered walks/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 53ms (Views: 48.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:49:01 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (1.9ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.8ms)
+  Rendered walks/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 45ms (Views: 40.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:49:18 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.0ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.4ms)
+  Rendered walks/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 54ms (Views: 48.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:49:44 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.6ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.9ms)
+  Rendered walks/show.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 61ms (Views: 53.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:50:09 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.2ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.7ms)
+  Rendered walks/show.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 56ms (Views: 48.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:50:57 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (3.1ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (3.9ms)
+  Rendered walks/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 499ms (Views: 493.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:51:37 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.3ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.9ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (2.9ms)
+  Rendered walks/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 492ms (Views: 485.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:52:15 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.4ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.4ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (3.6ms)
+  Rendered walks/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 490ms (Views: 483.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/walks/1" for 127.0.0.1 at 2019-01-02 17:52:32 -0500
+Processing by WalksController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mWalk Load (0.2ms)[0m  [1m[34mSELECT  "walks".* FROM "walks" WHERE "walks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/walks_controller.rb:102
+  Rendering walks/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_form.html.erb:4
+  Rendered walks/_form.html.erb (2.5ms)
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:1
+  [1m[36mDog Load (0.3ms)[0m  [1m[34mSELECT "dogs".* FROM "dogs" INNER JOIN "dogs_walks" ON "dogs"."id" = "dogs_walks"."dog_id" WHERE "dogs_walks"."walk_id" = ?[0m  [["walk_id", 1]]
+  ↳ app/views/walks/_show_dogs.html.erb:3
+  Rendered walks/_show_dogs.html.erb (3.2ms)
+  Rendered walks/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 481ms (Views: 475.3ms | ActiveRecord: 1.0ms)
+
+
