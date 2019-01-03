@@ -1,18 +1,22 @@
-<h2>Choose from the following walks</h2>
+<div  class="column3">
 
-<% @walks.each do |walk| %>
-  <%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs, walk: walk } %>
+  <h2>Choose from the following walks</h2>
 
-  <%= link_to "Show Dogs on this Walk!", walk_path(walk.id), class: "walk_list" %>
+  <% @walks.each do |walk| %>
+    <%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs, walk: walk } %>
 
-  <div class="dog_list<%=walk.id%>"></div>
+    <%= link_to "Show Dogs on this Walk!", walk_path(walk.id), class: "walk_list" %>
 
-  <ul>
-    <p id="dogs_list<%=walk.id%>">      </p>
-  </ul>
+    <div class="dog_list<%=walk.id%>"></div>
 
-  <p><%= button_to "Book This!", edit_walk_path(walk.id), {method: :get} %></p><br>
-<% end %>
+    <ul>
+      <p id="dogs_list<%=walk.id%>">      </p>
+    </ul>
+
+    <p><%= button_to "Book This!", edit_walk_path(walk.id), {method: :get} %></p><br>
+  <% end %>
 
 
-<p><%= button_to "Go to your Page", user_path(current_user.id), {method: :get} %></p>
+  <p><%= button_to "Go to your Page", user_path(current_user.id), {method: :get} %></p>
+
+</div>

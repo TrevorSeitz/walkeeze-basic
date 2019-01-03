@@ -1,8 +1,12 @@
+<div class="row">
+  <div class="column4">
+    <%= render partial: 'form', locals: { walk: @walk } %>
 
+    <p><%= button_to "Go to your Page", user_path(current_user.id), {method: :get} %></p>
+    <p><%= button_to "See Other Walks", walks_path, {method: :get} %></p><br />
 
-<%= render partial: 'form', locals: { walk: @walk } %>
-
-<%= render partial: 'add_dogs', locals: { walk: @walk, dogs: @dogs } %>
-
-
-<p><%= button_to "Go to your Page", user_path(current_user.id), {method: :get} %></p>
+  </div>
+  <div class="column4">
+    <%= render partial: 'add_dogs', locals: { walk: @walk, dogs: @dogs } %>
+  </div>
+</div>
