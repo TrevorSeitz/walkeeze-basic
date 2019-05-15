@@ -1,0 +1,7 @@
+<div>
+  <div id="tagline">
+    <%= "Get those dogs walking and stop the barking!!!" %><br><br>
+  </div>
+  <% @user.walker = true %>
+  <%= render partial: 'user_form', locals: { user: @user } %>
+</div>
