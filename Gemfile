@@ -37,7 +37,7 @@ gem 'thin'
 gem 'dotenv-rails'
 gem 'javascript'
 gem 'jquery-rails'
-gem 'jquery', '>=3.4.0'
+gem 'jquery'
 gem 'bootstrap'
 
 #gem 'bootstrap-sass'
