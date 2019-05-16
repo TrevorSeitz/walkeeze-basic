@@ -18,7 +18,7 @@ resources :photos
   get '/update_dogs' => 'walks#update', :as => :update_dogs
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/logout' => 'sessions#destroy', :as => :logout
-  get '/login' => 'sessions#new', :as => :login
+  # get '/login' => 'sessions#new', :as => :login
   get '/auth/github/callback' => 'sessions#create'
   get '/auth/google/callback' => 'sessions#create'
   get 'dogs/:id/schedule' => 'dogs#schedule', :as => :schedule
@@ -33,5 +33,5 @@ resources :photos
   match '/login' => 'sessions#new', via: [:get, :post]
   match '/users/callback' => 'sessions#create', via: [:get, :post]
   match '/users/walkeeze2/users/register', to: 'sessions#create', via: [:get, :post]
-  match '/walkers/register', to: 'sessions#create', via: [:get, :post]
+  match '/walkers/walkeeze2/walkers/register', to: 'sessions#create', via: [:get, :post]
 end
