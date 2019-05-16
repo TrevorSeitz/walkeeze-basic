@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.5'
+ruby '2.4.4'
 gem 'active_model_serializers', '0.10.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -38,13 +38,14 @@ gem 'dotenv-rails'
 gem 'javascript'
 gem 'jquery-rails'
 gem 'jquery'
-gem 'bootstrap'
+# gem 'sassc', '~> 2.0', '>= 2.0.1'
 
-#gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'paperclip', '>= 5.2.0'
 gem 'sass'
 gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass'
+# gem 'bootstrap'
 # gem 'jquery_ujs'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

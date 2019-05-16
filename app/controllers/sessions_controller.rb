@@ -3,10 +3,12 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params['email'])
     if @user && @user.authenticate(params['password'])
       session[:user_id] = @user.id
-      render 'welcome/home'
+      # render 'welcome/home'
+      redirect_to root_url
     else
       flash.now.alert = "Incorrect email or password, try again."
-      render 'welcome/home'
+      # render 'welcome/home'
+      redirect_to root_url
     end
   end
 
@@ -27,10 +29,12 @@ class SessionsController < ApplicationController
       if @user && @user.save
         session[:user_id] = @user.id
         render 'welcome/home'
+        # redirect_to welcome_show_path(@user)
       else
         flash.now.alert = "There were errors on your form"
         flash.now.alert = "please confirm your passwords match and all fields are complete"
-        render 'users/new'
+        # render 'users/new'
+        redirect_to new_user_path
       end
     # end
     # if @user
