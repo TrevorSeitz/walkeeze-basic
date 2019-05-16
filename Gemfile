@@ -38,13 +38,14 @@ gem 'dotenv-rails'
 gem 'javascript'
 gem 'jquery-rails'
 gem 'jquery'
-gem 'bootstrap'
+# gem 'sassc', '~> 2.0', '>= 2.0.1'
 
-#gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'paperclip', '>= 5.2.0'
 gem 'sass'
 gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass'
+# gem 'bootstrap'
 # gem 'jquery_ujs'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -76,6 +77,3 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
