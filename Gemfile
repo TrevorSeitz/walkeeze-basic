@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'omniauth', '~> 1.8', '>= 1.8.1'
+gem 'omniauth', '~> 1.9'
 gem 'rake', '~> 12.3', '>= 12.3.2'
 gem 'hashie', '~> 3.6'
 gem 'omniauth-google', '~> 1.0', '>= 1.0.2'
